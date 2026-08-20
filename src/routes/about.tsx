@@ -217,15 +217,18 @@ function Hero() {
           <span className="font-mono-label text-xs xs:text-sm uppercase tracking-wider text-accent font-semibold block">
             Software Engineer
           </span>
-          <span className="font-sans text-xs xs:text-sm sm:text-base font-medium text-foreground">
+          <span className="font-sans text-xs xs:text-sm sm:text-base font-medium text-foreground block">
             2+ Years Experience · Web & Mobile Development
+          </span>
+          <span className="font-sans text-xs xs:text-sm text-muted-foreground block mt-0.5">
+            Based in Medan, Sumatera Utara, 20243
           </span>
         </div>
       </div>
 
       <div className="max-w-4xl">
         <h1 className="font-display text-3xl xs:text-4xl sm:text-5xl md:text-[56px] lg:text-[60px] xl:text-[64px] font-normal leading-[1.08] text-foreground tracking-tight">
-          Engineering scalable, enterprise-grade applications with <em className="italic">measurable impact</em>.
+          Engineering scalable, enterprise grade applications with <em className="italic">measurable impact</em>.
         </h1>
       </div>
     </section>

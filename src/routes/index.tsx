@@ -70,9 +70,9 @@ function Hero() {
     <section className="mx-auto max-w-[1400px] px-4 xs:px-6 sm:px-8 md:px-10 pt-10 xs:pt-12 sm:pt-16 md:pt-24 pb-12 sm:pb-16 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-8 lg:items-start">
       {/* Left Column */}
       <div className="w-full">
-        <h1 className="font-sans text-3xl xs:text-4xl sm:text-[44px] md:text-[56px] lg:text-[60px] xl:text-[64px] leading-[1.1] md:leading-[64px] tracking-tight text-foreground">
+        <h1 className="font-sans text-3xl xs:text-4xl sm:text-[40px] md:text-[46px] lg:text-[48px] xl:text-[52px] leading-[1.15] tracking-tight text-foreground">
           I'm Fahri, a software engineer with{" "}
-          <em className="inline-block align-baseline italic">2+ years of experience</em>.
+          <em className="inline-block align-baseline italic">2+ years of experience.</em>
         </h1>
       </div>
 

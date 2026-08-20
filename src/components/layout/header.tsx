@@ -43,11 +43,11 @@ export default function Header() {
         <div className="relative mx-auto flex h-[60px] max-w-[1400px] items-center justify-between px-6 md:px-10">
 
           {/* Left Section: Logo + Title */}
-          <Link to="/" className="flex items-center gap-[12px] z-10">
-            <span className="font-mono text-[15px] font-medium uppercase leading-[23px] text-foreground whitespace-nowrap">
+          <Link to="/" className="flex flex-col sm:flex-row sm:items-center justify-center gap-0 sm:gap-[12px] z-10 py-1 sm:py-0">
+            <span className="font-mono text-[13px] xs:text-[14px] sm:text-[15px] font-medium uppercase leading-tight sm:leading-[23px] text-foreground whitespace-nowrap">
               Muhammad Fahri
             </span>
-            <span className="hidden sm:inline font-mono text-sm tracking-wider uppercase text-muted-foreground whitespace-nowrap">
+            <span className="font-mono text-[10px] xs:text-[11px] sm:text-sm tracking-wider uppercase text-muted-foreground whitespace-nowrap mt-0.5 sm:mt-0">
               Software Engineer
             </span>
           </Link>
