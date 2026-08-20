@@ -18,7 +18,6 @@ export function useCursorPosition() {
   return position
 }
 
-
 interface CursorFollowProps {
   children: React.ReactNode
   className?: string
@@ -35,6 +34,19 @@ const CursorFollow: React.FC<CursorFollowProps> = ({
   const [pendingText, setPendingText] = useState<string | null>(null)
   const [textWidth, setTextWidth] = useState<number>(0)
   const measureRef = useRef<HTMLSpanElement>(null)
+  const [isDesktop, setIsDesktop] = useState<boolean>(true)
+
+  // Detect if device is a desktop with fine pointer hover capability
+  useEffect(() => {
+    const checkDesktop = () => {
+      const isFinePointer = window.matchMedia("(pointer: fine)").matches
+      const isLargeScreen = window.innerWidth >= 1024
+      setIsDesktop(isFinePointer && isLargeScreen)
+    }
+    checkDesktop()
+    window.addEventListener("resize", checkDesktop)
+    return () => window.removeEventListener("resize", checkDesktop)
+  }, [])
 
   // Motion values for smooth follow
   const x = useMotionValue(0)
@@ -48,9 +60,11 @@ const CursorFollow: React.FC<CursorFollowProps> = ({
 
   // Update target position on mouse move
   useEffect(() => {
-    x.set(mouseX - bubbleWidth / 2)
-    y.set(mouseY - bubbleHeight / 2)
-  }, [mouseX, mouseY, bubbleWidth, bubbleHeight, x, y])
+    if (isDesktop) {
+      x.set(mouseX - bubbleWidth / 2)
+      y.set(mouseY - bubbleHeight / 2)
+    }
+  }, [mouseX, mouseY, bubbleWidth, bubbleHeight, x, y, isDesktop])
 
   // Pre-measure text width before showing bubble
   useEffect(() => {
@@ -67,6 +81,7 @@ const CursorFollow: React.FC<CursorFollowProps> = ({
 
   // Handlers for child hover
   const handleMouseOver = (e: React.MouseEvent) => {
+    if (!isDesktop) return
     const target = e.target as HTMLElement
     const text = target.getAttribute("data-cursor-text") || target.closest("[data-cursor-text]")?.getAttribute("data-cursor-text")
     if (text) {
@@ -74,6 +89,7 @@ const CursorFollow: React.FC<CursorFollowProps> = ({
     }
   }
   const handleMouseOut = () => {
+    if (!isDesktop) return
     setCursorText(null)
     setPendingText(null)
   }
@@ -83,99 +99,101 @@ const CursorFollow: React.FC<CursorFollowProps> = ({
       className={`relative h-full w-full ${className}`}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      style={{ minHeight: 300, cursor: "none" }}
+      style={{ minHeight: 300, cursor: isDesktop ? "none" : "auto" }}
     >
       {children}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.7 }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          transition: { duration: 0.32, ease: "easeInOut" },
-        }}
-        exit={{ opacity: 0, scale: 0.7 }}
-        className="pointer-events-none fixed z-50"
-        style={{ left: 0, top: 0, x: springX, y: springY }}
-      >
+      {isDesktop && (
         <motion.div
-          layout
-          transition={{ duration: 0.32, ease: "easeInOut" }}
-          animate={
-            cursorText
-              ? {
-                  width: bubbleWidth,
-                  height: 32,
-                  borderRadius: 16,
-                  background: "var(--color-accent, oklch(0.68 0.19 45))",
-                  color: "#fff",
-                  paddingLeft: 8,
-                  paddingRight: 8,
-                  minWidth: 40,
-                  minHeight: 28,
-                  scale: 1.1,
-                }
-              : {
-                  width: CIRCLE_SIZE,
-                  height: CIRCLE_SIZE,
-                  borderRadius: 999,
-                  background: "var(--color-accent, oklch(0.68 0.19 45))",
-                  color: "#fff",
-                  paddingLeft: 0,
-                  paddingRight: 0,
-                  minWidth: CIRCLE_SIZE,
-                  minHeight: CIRCLE_SIZE,
-                  scale: 1,
-                }
-          }
-          className="flex items-center justify-center text-xs font-medium shadow-lg"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
-            zIndex: 1,
-            boxShadow: "0 2px 8px 0 rgba(0,0,0,0.10)",
+          initial={{ opacity: 0, scale: 0.7 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            transition: { duration: 0.32, ease: "easeInOut" },
           }}
+          exit={{ opacity: 0, scale: 0.7 }}
+          className="pointer-events-none fixed z-50 hidden lg:block"
+          style={{ left: 0, top: 0, x: springX, y: springY }}
         >
-          {cursorText && (
-            <motion.span
-              initial={{ opacity: 0, filter: "blur(8px)" }}
-              animate={{ opacity: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, filter: "blur(8px)" }}
-              transition={{ duration: 0.28, delay: 0.1, ease: "easeInOut" }}
-              className="flex items-center justify-center gap-1.5"
-              style={{
-                whiteSpace: "nowrap",
-                width: "100%",
-                textAlign: "center",
-                color: "#fff",
-              }}
-            >
-              <Eye className="h-3.5 w-3.5 flex-shrink-0" />
-              <span>{cursorText}</span>
-            </motion.span>
-          )}
-        </motion.div>
-        {/* Hidden span for pre-measuring text width */}
-        {(pendingText || cursorText) && (
-          <span
-            ref={measureRef}
+          <motion.div
+            layout
+            transition={{ duration: 0.32, ease: "easeInOut" }}
+            animate={
+              cursorText
+                ? {
+                    width: bubbleWidth,
+                    height: 32,
+                    borderRadius: 16,
+                    background: "var(--color-accent, oklch(0.68 0.19 45))",
+                    color: "#fff",
+                    paddingLeft: 8,
+                    paddingRight: 8,
+                    minWidth: 40,
+                    minHeight: 28,
+                    scale: 1.1,
+                  }
+                : {
+                    width: CIRCLE_SIZE,
+                    height: CIRCLE_SIZE,
+                    borderRadius: 999,
+                    background: "var(--color-accent, oklch(0.68 0.19 45))",
+                    color: "#fff",
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                    minWidth: CIRCLE_SIZE,
+                    minHeight: CIRCLE_SIZE,
+                    scale: 1,
+                  }
+            }
+            className="flex items-center justify-center text-xs font-medium shadow-lg"
             style={{
-              position: "absolute",
-              visibility: "hidden",
-              pointerEvents: "none",
-              whiteSpace: "nowrap",
-              fontSize: "0.75rem",
-              fontWeight: 500,
-              paddingLeft: 16,
-              paddingRight: 16,
-              fontFamily: "inherit",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
+              zIndex: 1,
+              boxShadow: "0 2px 8px 0 rgba(0,0,0,0.10)",
             }}
           >
-            {pendingText || cursorText}
-          </span>
-        )}
-      </motion.div>
+            {cursorText && (
+              <motion.span
+                initial={{ opacity: 0, filter: "blur(8px)" }}
+                animate={{ opacity: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, filter: "blur(8px)" }}
+                transition={{ duration: 0.28, delay: 0.1, ease: "easeInOut" }}
+                className="flex items-center justify-center gap-1.5"
+                style={{
+                  whiteSpace: "nowrap",
+                  width: "100%",
+                  textAlign: "center",
+                  color: "#fff",
+                }}
+              >
+                <Eye className="h-3.5 w-3.5 flex-shrink-0" />
+                <span>{cursorText}</span>
+              </motion.span>
+            )}
+          </motion.div>
+          {/* Hidden span for pre-measuring text width */}
+          {(pendingText || cursorText) && (
+            <span
+              ref={measureRef}
+              style={{
+                position: "absolute",
+                visibility: "hidden",
+                pointerEvents: "none",
+                whiteSpace: "nowrap",
+                fontSize: "0.75rem",
+                fontWeight: 500,
+                paddingLeft: 16,
+                paddingRight: 16,
+                fontFamily: "inherit",
+              }}
+            >
+              {pendingText || cursorText}
+            </span>
+          )}
+        </motion.div>
+      )}
     </div>
   )
 }
