@@ -1,8 +1,8 @@
 import React from "react";
 import amangImg from "@/assets/Amang.jpeg";
-import amangGif from "@/assets/gif/amang.gif";
-import amang2Gif from "@/assets/gif/amang2.gif";
-import amang3Gif from "@/assets/gif/amang3.gif";
+import amangVid from "@/assets/gif/amang.mp4";
+import amang2Vid from "@/assets/gif/amang2.mp4";
+import amang3Vid from "@/assets/gif/amang3.mp4";
 import notifKirimImg from "@/assets/notif-kirim.png";
 import notifEmailImg from "@/assets/notif-email.jpeg";
 
@@ -91,9 +91,12 @@ export const amangData = {
           <div className="my-6 rounded-lg overflow-hidden border border-border/60">
             <div className="flex flex-col md:flex-row min-h-[380px]">
               <div className="md:w-[80%] flex items-center justify-center bg-muted/20 p-4">
-                <img
-                  src={amangGif}
-                  alt="Regular Internship Application Demonstration"
+                <video
+                  src={amangVid}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-auto max-h-[480px] rounded-lg shadow-sm object-contain"
                 />
               </div>
@@ -114,9 +117,12 @@ export const amangData = {
           <div className="my-6 rounded-lg overflow-hidden border border-border/60">
             <div className="flex flex-col md:flex-row min-h-[380px]">
               <div className="md:w-[80%] flex items-center justify-center bg-muted/20 p-4">
-                <img
-                  src={amang2Gif}
-                  alt="Independent Internship Application Demonstration"
+                <video
+                  src={amang2Vid}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-auto max-h-[480px] rounded-lg shadow-sm object-contain"
                 />
               </div>
@@ -137,9 +143,12 @@ export const amangData = {
           <div className="my-6 rounded-lg overflow-hidden border border-border/60">
             <div className="flex flex-col md:flex-row min-h-[380px]">
               <div className="md:w-[80%] flex items-center justify-center bg-muted/20 p-4">
-                <img
-                  src={amang3Gif}
-                  alt="Admin Dashboard Demonstration"
+                <video
+                  src={amang3Vid}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-auto max-h-[480px] rounded-lg shadow-sm object-contain"
                 />
               </div>

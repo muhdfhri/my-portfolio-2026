@@ -2,7 +2,7 @@ import React from "react";
 import niviaImg from "@/assets/Nivia.png";
 import nivia2Img from "@/assets/nivia2.png";
 import nivia3Img from "@/assets/nivia3.png";
-import niviaGif from "@/assets/gif/nivia.gif";
+import niviaVid from "@/assets/gif/nivia.mp4";
 
 export const niviaData = {
   title: "Nivia Hotel",
@@ -128,9 +128,12 @@ export const niviaData = {
           <div className="my-6 rounded-lg overflow-hidden border border-border/60">
             <div className="flex flex-col md:flex-row min-h-[380px]">
               <div className="md:w-[65%] flex items-center justify-center bg-muted/20 p-4">
-                <img
-                  src={niviaGif}
-                  alt="Staff Admin Panel Feature Walkthrough"
+                <video
+                  src={niviaVid}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-auto max-h-[460px] rounded-lg shadow-sm object-contain"
                 />
               </div>

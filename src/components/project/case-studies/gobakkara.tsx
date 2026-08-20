@@ -2,7 +2,7 @@ import React from "react";
 import gobakkaraImg from "@/assets/gobakkara.png";
 import gobakkara2Img from "@/assets/gobakkara2.png";
 import gobakkara3Img from "@/assets/gobakkara3.png";
-import splashscreenGif from "@/assets/gif/splashscreen.gif";
+import splashscreenVid from "@/assets/gif/splashscreen.mp4";
 
 export const gobakkaraData = {
   title: "Gobakkara",
@@ -49,9 +49,12 @@ export const gobakkaraData = {
           <div className="my-6 rounded-lg overflow-hidden border border-border/60">
             <div className="flex flex-col md:flex-row min-h-[380px]">
               <div className="md:w-[70%] flex items-center justify-center bg-muted/20 p-4">
-                <img
-                  src={splashscreenGif}
-                  alt="Gobakkara Animated Splash Screen"
+                <video
+                  src={splashscreenVid}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-auto h-auto max-h-[460px] max-w-full rounded-lg shadow-sm object-contain"
                 />
               </div>
