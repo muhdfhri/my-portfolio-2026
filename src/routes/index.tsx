@@ -72,7 +72,7 @@ function Hero() {
       <div className="w-full">
         <h1 className="font-sans text-3xl xs:text-4xl sm:text-[44px] md:text-[56px] lg:text-[60px] xl:text-[64px] leading-[1.1] md:leading-[64px] tracking-tight text-foreground">
           I'm Fahri, a software engineer with{" "}
-          <em className="inline-block align-baseline italic">2+ years</em>.
+          <em className="inline-block align-baseline italic">2+ years of experience</em>.
         </h1>
       </div>
 
