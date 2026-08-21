@@ -71,19 +71,30 @@ export const Route = createFileRoute("/about")({
   component: About,
   head: () => ({
     meta: [
-      { title: "About - Muhammad Fahri" },
+      { title: "About | Muhammad Fahri | Software Engineer | Full-Stack Developer" },
       {
         name: "description",
         content:
           "Muhammad Fahri | Software Engineer with 2+ years of experience developing web and mobile applications using Laravel, React, Vue, Inertia, and Flutter.",
       },
-      { property: "og:title", content: "About — Muhammad Fahri" },
+      { property: "og:title", content: "About | Muhammad Fahri | Software Engineer | Full-Stack Developer" },
       {
         property: "og:description",
         content:
           "Software Engineer based in Medan, Indonesia. Specialized in RESTful APIs, database optimization, and enterprise software architecture.",
       },
       { property: "og:type", content: "profile" },
+      { property: "og:url", content: "https://muhammadfahri.my.id/about" },
+      { property: "og:image", content: "https://muhammadfahri.my.id/foto.jpg" },
+      { property: "og:image:secure_url", content: "https://muhammadfahri.my.id/foto.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "About | Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      {
+        name: "twitter:description",
+        content:
+          "Software Engineer based in Medan, Indonesia. Specialized in RESTful APIs, database optimization, and enterprise software architecture.",
+      },
+      { name: "twitter:image", content: "https://muhammadfahri.my.id/foto.jpg" },
     ],
   }),
 });

@@ -73,17 +73,47 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const SITE_URL = "https://muhammadfahri.my.id";
+const OG_IMAGE_URL = "https://muhammadfahri.my.id/foto.jpg";
+const DEFAULT_TITLE = "Muhammad Fahri | Software Engineer | Full-Stack Developer";
+const DEFAULT_DESCRIPTION =
+  "Muhammad Fahri is a Software Engineer & Full-Stack Developer based in Medan, Indonesia with 2+ years of experience building enterprise web and mobile applications using Laravel, React, Vue, Node.js, and Flutter.";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Muhammad Fahri | Software Engineer" },
-      { name: "description", content: "Portfolio of a Software Engineer." },
-      { property: "og:title", content: "Muhammad Fahri | Software Engineer" },
-      { property: "og:description", content: "Portfolio of a Software Engineer." },
+      { title: DEFAULT_TITLE },
+      { name: "description", content: DEFAULT_DESCRIPTION },
+      { name: "author", content: "Muhammad Fahri" },
+      {
+        name: "keywords",
+        content:
+          "Muhammad Fahri, Software Engineer, Full-Stack Developer, Web Developer Medan, React, Laravel, Vue, Inertia, Flutter, Portfolio",
+      },
+      { name: "robots", content: "index, follow" },
+
+      // Open Graph / Facebook / WhatsApp / LinkedIn
+      { property: "og:site_name", content: "Muhammad Fahri Portfolio" },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:title", content: DEFAULT_TITLE },
+      { property: "og:description", content: DEFAULT_DESCRIPTION },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { property: "og:image:secure_url", content: OG_IMAGE_URL },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Muhammad Fahri - Software Engineer & Full-Stack Developer" },
+
+      // Twitter Card
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:url", content: SITE_URL },
+      { name: "twitter:title", content: DEFAULT_TITLE },
+      { name: "twitter:description", content: DEFAULT_DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+      { name: "twitter:image:alt", content: "Muhammad Fahri - Software Engineer & Full-Stack Developer" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

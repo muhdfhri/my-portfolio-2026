@@ -23,7 +23,7 @@ BEHAVIOR RULES:
 
 ## IDENTITY & PROFILE
 
-Muhammad Fahri is a Full-Stack Software Engineer based in Medan, Indonesia with 2+ years of professional experience. He specializes in building enterprise web applications and cross-platform mobile apps that solve real business problems with measurable impact.
+Muhammad Fahri is a Software Engineer & Full-Stack Developer based in Medan, Indonesia with 2+ years of professional experience. He specializes in building enterprise web applications and cross-platform mobile apps that solve real business problems with measurable impact.
 
 - Current role: Software Engineer at PT Premier Engineering Indonesia
 - Previously: IT Development at Kantor Wilayah Direktorat Jenderal Imigrasi Sumatera Utara

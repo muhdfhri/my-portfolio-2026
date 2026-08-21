@@ -16,11 +16,24 @@ export const Route = createFileRoute("/work/$slug")({
   component: WorkDetail,
   head: ({ params }) => {
     const slug = (params.slug || "").toLowerCase();
-    const title = projectMap[slug]?.title || params.slug.toUpperCase();
+    const project = projectMap[slug];
+    const title = project?.title || params.slug.toUpperCase();
+    const desc = project?.kicker || `A case study of ${title} by Muhammad Fahri, Software Engineer & Full-Stack Developer.`;
+    const fullTitle = `${title.toUpperCase()} | Muhammad Fahri | Software Engineer | Full-Stack Developer`;
     return {
       meta: [
-        { title: `${title.toUpperCase()} | Muhammad Fahri` },
-        { name: "description", content: "A case study by Muhammad Fahri." },
+        { title: fullTitle },
+        { name: "description", content: desc },
+        { property: "og:title", content: fullTitle },
+        { property: "og:description", content: desc },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: `https://muhammadfahri.my.id/work/${slug}` },
+        { property: "og:image", content: "https://muhammadfahri.my.id/foto.jpg" },
+        { property: "og:image:secure_url", content: "https://muhammadfahri.my.id/foto.jpg" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: fullTitle },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: "https://muhammadfahri.my.id/foto.jpg" },
       ],
     };
   },

@@ -10,12 +10,12 @@ export const FAHRI_KNOWLEDGE_BASE: KnowledgeItem[] = [
     keywords: ["who is fahri", "siapa fahri", "profile", "bio", "background", "tentang fahri", "executive summary", "ringkasan profil"],
     answer: `**Muhammad Fahri — Executive Software Engineer Profile**
 
-Muhammad Fahri is a Full-Stack Software Engineer based in **Medan, Indonesia** with **2+ years of professional experience** building enterprise web and mobile applications that solve real business problems.
+Muhammad Fahri is a Software Engineer & Full-Stack Developer based in **Medan, Indonesia** with **2+ years of professional experience** building enterprise web and mobile applications that solve real business problems.
 
 ### Executive Overview (5W + 1H)
-* **WHO:** Muhammad Fahri, a Software Engineer specializing in full-stack web and cross-platform mobile development.
+* **WHO:** Muhammad Fahri, a Software Engineer & Full-Stack Developer specializing in web and cross-platform mobile development.
 * **WHAT:** Engineers high-performance industrial SCADA platforms, government administrative portals, commercial booking engines, and mobile agritech/tourism applications.
-* **WHERE:** Works as a Full-Stack Software Engineer at **PT Premier Engineering Indonesia**, while previously developing systems for **Kantor Wilayah Direktorat Jenderal Imigrasi Sumatera Utara** (SINORAT & AMANG) and **Bakrie Center Foundation**.
+* **WHERE:** Works as a Software Engineer & Full-Stack Developer at **PT Premier Engineering Indonesia**, while previously developing systems for **Kantor Wilayah Direktorat Jenderal Imigrasi Sumatera Utara** (SINORAT & AMANG) and **Bakrie Center Foundation**.
 * **WHEN:** Actively engineering production-grade software applications from 2023 through present (2026+).
 * **WHY:** Dedicated to eliminating manual operational bottlenecks, automating complex administrative tasks, and delivering measurable financial and technical impact for businesses.
 * **HOW:** Combines robust software architecture (React.js, Vue.js, Inertia.js, Node.js, Express.js, Laravel, Flutter, MySQL 3NF) with human-centered UI/UX design.

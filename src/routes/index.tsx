@@ -11,6 +11,34 @@ import niviaImg from "@/assets/Nivia.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      {
+        name: "description",
+        content:
+          "Muhammad Fahri is a Software Engineer & Full-Stack Developer based in Medan, Indonesia with 2+ years of experience building enterprise web and mobile applications.",
+      },
+      { property: "og:title", content: "Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      {
+        property: "og:description",
+        content:
+          "Muhammad Fahri is a Software Engineer & Full-Stack Developer based in Medan, Indonesia with 2+ years of experience building enterprise web and mobile applications.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://muhammadfahri.my.id/" },
+      { property: "og:image", content: "https://muhammadfahri.my.id/foto.jpg" },
+      { property: "og:image:secure_url", content: "https://muhammadfahri.my.id/foto.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      {
+        name: "twitter:description",
+        content:
+          "Muhammad Fahri is a Software Engineer & Full-Stack Developer based in Medan, Indonesia with 2+ years of experience building enterprise web and mobile applications.",
+      },
+      { name: "twitter:image", content: "https://muhammadfahri.my.id/foto.jpg" },
+    ],
+  }),
 });
 
 const experience = [

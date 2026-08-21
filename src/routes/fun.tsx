@@ -7,8 +7,18 @@ export const Route = createFileRoute("/fun")({
   component: FunPage,
   head: () => ({
     meta: [
-      { title: "Fun Projects | Muhammad Fahri" },
-      { name: "description", content: "Coming Soon." },
+      { title: "Fun Projects | Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      { name: "description", content: "Fun experimental projects and creative builds by Muhammad Fahri." },
+      { property: "og:title", content: "Fun Projects | Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      { property: "og:description", content: "Fun experimental projects and creative builds by Muhammad Fahri." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://muhammadfahri.my.id/fun" },
+      { property: "og:image", content: "https://muhammadfahri.my.id/foto.jpg" },
+      { property: "og:image:secure_url", content: "https://muhammadfahri.my.id/foto.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Fun Projects | Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      { name: "twitter:description", content: "Fun experimental projects and creative builds by Muhammad Fahri." },
+      { name: "twitter:image", content: "https://muhammadfahri.my.id/foto.jpg" },
     ],
   }),
 });
