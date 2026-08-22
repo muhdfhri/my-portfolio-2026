@@ -198,6 +198,11 @@ const TECHNICAL_SKILLS: SkillCategory[] = [
 
 const CERTIFICATIONS = [
   {
+    issuer: "BNSP",
+    year: "2026 – 2029",
+    title: "Certified Assistant Web Developer (Software Development)",
+  },
+  {
     issuer: "Kemnaker RI",
     year: "2026",
     title: "Maganghub Batch 2 Certificate",
@@ -218,20 +223,20 @@ function Hero() {
   return (
     <section className="mx-auto max-w-[1400px] px-4 xs:px-6 sm:px-8 md:px-10 pt-10 xs:pt-12 sm:pt-16 md:pt-24 pb-8 sm:pb-12">
       {/* Top Photo Asset & Header */}
-      <div className="flex items-center gap-3 xs:gap-4 sm:gap-5 mb-6 sm:mb-8">
+      <div className="flex items-center gap-4 xs:gap-5 sm:gap-6 md:gap-7 mb-8 sm:mb-10">
         <img
           src={fotoImg}
           alt="Muhammad Fahri"
-          className="w-14 h-14 xs:w-16 xs:h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border border-border shadow-xs shrink-0"
+          className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl sm:rounded-3xl object-cover border border-border/80 shadow-md shrink-0"
         />
-        <div className="translate-y-0.5 pt-0.5">
-          <span className="font-mono-label text-xs xs:text-sm uppercase tracking-wider text-accent font-semibold block">
+        <div className="space-y-0.5 sm:space-y-1">
+          <span className="font-mono-label text-xs xs:text-sm sm:text-base uppercase tracking-wider text-accent font-semibold block">
             Software Engineer
           </span>
-          <span className="font-sans text-xs xs:text-sm sm:text-base font-medium text-foreground block">
+          <span className="font-sans text-sm xs:text-base sm:text-lg md:text-xl font-semibold text-foreground block leading-tight">
             2+ Years Experience · Web & Mobile Development
           </span>
-          <span className="font-sans text-xs xs:text-sm text-muted-foreground block mt-0.5">
+          <span className="font-sans text-xs xs:text-sm sm:text-base text-muted-foreground block font-normal">
             Based in Medan, Sumatera Utara, 20243
           </span>
         </div>
