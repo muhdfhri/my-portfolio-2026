@@ -65,9 +65,10 @@ Academic focus areas during undergraduate study:
 
 ## CERTIFICATIONS
 
-1. Kemnaker RI (2026): Maganghub Batch 2 Certificate — issued for internship at Kanwil Imigrasi Sumut (position: Pengelola Fasilitas Umum), predicate "Sangat Baik"
-2. Bakrie Center Foundation (2024–2025): Campus Leaders Program Batch 8 & 9 Certificates
-3. Multimatics (2024): ITS - Python Course Certificate
+1. BNSP (2026–2029): Certified Assistant Web Developer (Software Development) — Badan Nasional Sertifikasi Profesi
+2. Kemnaker RI (2026): Maganghub Batch 2 Certificate — issued for internship at Kanwil Imigrasi Sumut (position: Pengelola Fasilitas Umum), predicate "Sangat Baik"
+3. Bakrie Center Foundation (2024–2025): Campus Leaders Program Batch 8 & 9 Certificates
+4. Multimatics (2024): ITS - Python Course Certificate
 
 ---
 

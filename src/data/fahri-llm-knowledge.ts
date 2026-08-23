@@ -183,7 +183,23 @@ Fahri served as the **Lead Author** for the CLP Batch 9 National Proceedings at 
     ],
   },
 
-  // 10. CERTIFICATION 1: KEMNAKER RI MAGANGHUB BATCH 2 (2026)
+  // 10. CERTIFICATION: BNSP (2026–2029)
+  {
+    keywords: ["bnsp", "bnsp certification", "sertifikat bnsp", "assistant web developer", "certified assistant web developer"],
+    answer: `**BNSP — Certified Assistant Web Developer (Software Development) (2026 – 2029)**
+
+* **Issuing Authority:** Badan Nasional Sertifikasi Profesi (BNSP).
+* **Validity Period:** 2026 – 2029.
+* **Certification:** Certified Assistant Web Developer (Software Development).
+* **Significance:** Official national professional certification validating Fahri's competence in professional software engineering and web application development.`,
+    recommendations: [
+      "What other certifications does Fahri hold?",
+      "Tell me about Fahri's full technical stack.",
+      "How to view Fahri's resume?",
+    ],
+  },
+
+  // 11. CERTIFICATION 1: KEMNAKER RI MAGANGHUB BATCH 2 (2026)
   {
     keywords: ["kemnaker certification", "maganghub", "maganghub batch 2", "kemnaker ri 2026", "sertifikat kemnaker"],
     answer: `**Kemnaker RI — Maganghub Batch 2 Certificate (2026)**

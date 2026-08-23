@@ -13,14 +13,6 @@ export default function Footer() {
             LinkedIn
           </a>
           <a
-            href="https://www.upwork.com/freelancers/~01918ce8f3637c223e?mp_source=share"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-foreground transition"
-          >
-            Upwork
-          </a>
-          <a
             href="https://github.com/muhdfhri"
             target="_blank"
             rel="noreferrer"
@@ -35,6 +27,14 @@ export default function Footer() {
             className="hover:text-foreground transition"
           >
             Medium
+          </a>
+          <a
+            href="https://www.upwork.com/freelancers/~01918ce8f3637c223e?mp_source=share"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-foreground transition"
+          >
+            Upwork
           </a>
         </div>
       </div>

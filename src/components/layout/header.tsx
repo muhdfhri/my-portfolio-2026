@@ -69,23 +69,23 @@ export default function Header() {
               </Link>
             )}
             <Link
-              to="/fun"
-              className={`${isFunActive ? "text-accent hover:text-accent" : "text-muted-foreground hover:text-foreground"
-                } transition-colors whitespace-nowrap`}
-            >
-              Fun Projects
-            </Link>
-          </div>
-          <div className="hidden lg:flex absolute left-1/2 items-center gap-[28px] pl-[14px] font-mono text-sm tracking-wider uppercase z-10">
-            <Link
               to="/about"
               className={`${isAboutActive ? "text-accent hover:text-accent" : "text-muted-foreground hover:text-foreground"
                 } transition-colors`}
             >
               About
             </Link>
+          </div>
+          <div className="hidden lg:flex absolute left-1/2 items-center gap-[28px] pl-[14px] font-mono text-sm tracking-wider uppercase z-10">
+            <Link
+              to="/fun"
+              className={`${isFunActive ? "text-accent hover:text-accent" : "text-muted-foreground hover:text-foreground"
+                } transition-colors whitespace-nowrap`}
+            >
+              Fun Projects
+            </Link>
             <a
-              href="https://drive.google.com/file/d/10cM5KA61J1h9syHDwoSYwOp_LSRSrE8g/view?usp=sharing"
+              href="https://drive.google.com/drive/folders/1dVPwd4Ts9w1xCCTL0-oa1C3plPcD1BRY?hl=id"
               target="_blank"
               rel="noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -176,27 +176,11 @@ export default function Header() {
                 </Link>
               </motion.div>
 
-              {/* FUN */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.12 }}
-                className="w-full flex justify-center"
-              >
-                <Link
-                  to="/fun"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="group inline-flex items-center text-4xl sm:text-6xl md:text-7xl font-display font-medium text-foreground hover:text-accent transition-colors"
-                >
-                  <span>FUN PROJECTS</span>
-                </Link>
-              </motion.div>
-
               {/* ABOUT */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.16 }}
+                transition={{ delay: 0.12 }}
                 className="w-full flex justify-center"
               >
                 <Link
@@ -208,6 +192,22 @@ export default function Header() {
                 </Link>
               </motion.div>
 
+              {/* FUN */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.16 }}
+                className="w-full flex justify-center"
+              >
+                <Link
+                  to="/fun"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="group inline-flex items-center text-4xl sm:text-6xl md:text-7xl font-display font-medium text-foreground hover:text-accent transition-colors"
+                >
+                  <span>FUN PROJECTS</span>
+                </Link>
+              </motion.div>
+
               {/* RESUME */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
@@ -216,7 +216,7 @@ export default function Header() {
                 className="w-full flex justify-center"
               >
                 <a
-                  href="https://drive.google.com/file/d/10cM5KA61J1h9syHDwoSYwOp_LSRSrE8g/view?usp=sharing"
+                  href="https://drive.google.com/drive/folders/1dVPwd4Ts9w1xCCTL0-oa1C3plPcD1BRY?hl=id"
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setIsMenuOpen(false)}
