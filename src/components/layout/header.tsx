@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { X, ArrowUpRight } from "lucide-react";
-import aiImg from "@/assets/ai4.png";
+import aiImg from "@/assets/chat-ai.png";
 import FahriLLMDrawer from "@/components/ai/fahri-llm-drawer";
 
 // 3x3 Grid Waffle Menu Icon
@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-40 backdrop-blur-md bg-background/70 border-b border-border/60">
-        <div className="relative mx-auto flex h-[60px] max-w-[1400px] items-center justify-between px-6 md:px-10">
+        <div className="relative mx-auto flex h-[70px] sm:h-[60px] max-w-[1400px] items-center justify-between px-6 md:px-10">
 
           {/* Left Section: Logo + Title */}
           <Link to="/" className="flex flex-col sm:flex-row sm:items-center justify-center gap-0 sm:gap-[12px] z-10 py-1 sm:py-0">
@@ -96,16 +96,24 @@ export default function Header() {
 
           {/* Right Section: Fahri LLM AI Circular Icon Button + Waffle Menu Button */}
           <div className="flex items-center justify-end gap-2 sm:gap-3 z-10">
-            {/* Fahri LLM AI Button */}
+            {/* Fahri LLM AI Button (Desktop Header) */}
             <button
               onClick={() => setIsLLMOpen(true)}
-              className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-accent/10 hover:bg-accent/20 border border-accent/30 hover:border-accent/50 transition-all cursor-pointer group shadow-2xs overflow-hidden shrink-0"
+              className="hidden sm:flex items-center justify-center w-9 h-9 rounded-full bg-accent hover:bg-accent/90 border border-accent/40 transition-all cursor-pointer group shadow-sm shrink-0"
               title="Open Fahri LLM AI Assistant"
             >
-              <img
-                src={aiImg}
-                alt="AI Assistant"
-                className="w-5 h-5 sm:w-5.5 sm:h-5.5 object-contain group-hover:scale-110 transition-transform"
+              <span
+                className="inline-block w-5 h-5 bg-white shrink-0 group-hover:scale-110 transition-transform"
+                style={{
+                  maskImage: `url(${aiImg})`,
+                  maskSize: "contain",
+                  maskRepeat: "no-repeat",
+                  maskPosition: "center",
+                  WebkitMaskImage: `url(${aiImg})`,
+                  WebkitMaskSize: "contain",
+                  WebkitMaskRepeat: "no-repeat",
+                  WebkitMaskPosition: "center",
+                }}
               />
             </button>
 
@@ -225,41 +233,12 @@ export default function Header() {
                   <span>RESUME</span>
                 </a>
               </motion.div>
-
-              {/* AI ICON BUTTON (AI ASSISTANT TRIGGER) */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.24 }}
-                className="w-full flex justify-center pt-2"
-              >
-                <button
-                  onClick={handleOpenLLM}
-                  className="group inline-flex items-center justify-center p-2 text-foreground hover:text-accent transition-colors cursor-pointer"
-                  aria-label="Open AI Assistant"
-                  title="Open AI Assistant"
-                >
-                  <span
-                    className="inline-block h-8 w-8 sm:h-11 sm:w-11 bg-accent shrink-0 group-hover:scale-110 transition-transform"
-                    style={{
-                      maskImage: `url(${aiImg})`,
-                      maskSize: "contain",
-                      maskRepeat: "no-repeat",
-                      maskPosition: "center",
-                      WebkitMaskImage: `url(${aiImg})`,
-                      WebkitMaskSize: "contain",
-                      WebkitMaskRepeat: "no-repeat",
-                      WebkitMaskPosition: "center",
-                    }}
-                  />
-                </button>
-              </motion.div>
             </div>
 
-            {/* Bottom Bar: Hidden on mobile mode, visible on desktop */}
-            <div className="hidden md:flex flex-wrap items-center justify-between gap-4 border-t border-border/60 pt-6 font-mono text-xs text-muted-foreground uppercase">
-              <span>© {new Date().getFullYear()} Muhammad Fahri</span>
-              <div className="flex gap-6">
+            {/* Bottom Bar: Social Links & Copyright (Visible on Mobile & Desktop overlay) */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border/60 pt-5 sm:pt-6 font-mono-label text-xs sm:text-sm text-muted-foreground uppercase shrink-0">
+              <span className="text-center sm:text-left font-medium">© {new Date().getFullYear()} MUHAMMAD FAHRI</span>
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
                 <a
                   href="https://www.linkedin.com/in/muhdfhri/"
                   target="_blank"
@@ -284,12 +263,44 @@ export default function Header() {
                 >
                   Medium
                 </a>
+                <a
+                  href="https://www.upwork.com/freelancers/~01918ce8f3637c223e?mp_source=share"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-foreground transition-colors"
+                >
+                  Upwork
+                </a>
               </div>
             </div>
 
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Mobile Floating Action Button (FAB) for AI Assistant */}
+      {!isLLMOpen && (
+        <button
+          onClick={() => setIsLLMOpen(true)}
+          className="sm:hidden fixed bottom-5 right-5 z-40 flex items-center justify-center w-12 h-12 rounded-full bg-accent hover:bg-accent/90 active:scale-95 transition-all shadow-lg shadow-accent/35 cursor-pointer group"
+          title="Open Fahri LLM AI Assistant"
+          aria-label="Open AI Assistant"
+        >
+          <span
+            className="inline-block w-6 h-6 bg-white shrink-0 group-hover:scale-110 transition-transform"
+            style={{
+              maskImage: `url(${aiImg})`,
+              maskSize: "contain",
+              maskRepeat: "no-repeat",
+              maskPosition: "center",
+              WebkitMaskImage: `url(${aiImg})`,
+              WebkitMaskSize: "contain",
+              WebkitMaskRepeat: "no-repeat",
+              WebkitMaskPosition: "center",
+            }}
+          />
+        </button>
+      )}
 
       {/* Fahri LLM Slide-over Drawer */}
       <FahriLLMDrawer isOpen={isLLMOpen} onClose={() => setIsLLMOpen(false)} />
