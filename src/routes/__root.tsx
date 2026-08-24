@@ -75,7 +75,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 const SITE_URL = "https://muhammadfahri.my.id";
 const OG_IMAGE_URL = "https://muhammadfahri.my.id/foto.jpg";
-const DEFAULT_TITLE = "Muhammad Fahri | Software Engineer | Full-Stack Developer";
+const DEFAULT_TITLE = "Muhammad Fahri | Software Engineer";
 const DEFAULT_DESCRIPTION =
   "Muhammad Fahri is a Software Engineer & Full-Stack Developer based in Medan, Indonesia with 2+ years of experience building enterprise web and mobile applications using Laravel, React, Vue, Node.js, and Flutter.";
 

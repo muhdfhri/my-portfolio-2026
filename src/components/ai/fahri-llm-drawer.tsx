@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, RotateCcw, Info, CornerDownRight, ArrowUp, Sparkles, Sun, Moon, Sunrise, Coffee, Sunset } from "lucide-react";
-import aiImg from "@/assets/ai4.png";
+import aiImg from "@/assets/chat-ai.png";
 import { SUGGESTED_PROMPTS } from "@/data/fahri-llm-system-prompt";
 import { callGeminiLLM } from "@/lib/fahri-llm-server";
 
