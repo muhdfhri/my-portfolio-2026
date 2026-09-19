@@ -13,6 +13,7 @@ export const gobakkaraData = {
     timeline: "Mar 2025",
     team: ["1 Freelance Developer (me!)"],
     skills: ["Mobile App Development"],
+    link: "https://github.com/muhdfhri/booking-app",
   },
   customSections: [
     {

@@ -21,6 +21,7 @@ export const ipomasData = {
     timeline: "May 2026 – Present",
     team: ["1 Lead Developer (me!)", "SCADA Engineers", "Plant Technicians"],
     skills: ["SCADA Web Monitoring", "Mobile Flutter App", "IoT/PLC Data Streaming", "Agritech Digitalization"],
+    link: "https://ipomas.premier-engineering.web.id/",
   },
   customSections: [
     {

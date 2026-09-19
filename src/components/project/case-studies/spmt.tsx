@@ -11,13 +11,13 @@ export const spmtData = {
     timeline: "May 2026",
     team: [
       "1 Lead Developer (me!)",
-
     ],
     skills: [
       "Laravel 12 / PHP 8.2+",
       "Vite & Tailwind CSS",
       "MySQL",
     ],
+    link: "https://github.com/muhdfhri/SPMT",
   },
   customSections: [
     {

@@ -6,6 +6,8 @@ import IPOMASvideo from "@/assets/video/IPOMAS.mp4";
 import SinoratVideo from "@/assets/video/sinorat.mp4";
 import AmangImg from "@/assets/Amang.jpeg";
 import gobakkaraImg from "@/assets/gobakkara.png";
+import ecoreveImg from "@/assets/ecoreve.png";
+import simpelDbiImg from "@/assets/simpel-dbi.png";
 import spmtImg from "@/assets/spmt.png";
 import niviaImg from "@/assets/Nivia.png";
 
@@ -13,13 +15,13 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Muhammad Fahri | Software Engineer" },
+      { title: "Muhammad Fahri - Software Engineer" },
       {
         name: "description",
         content:
           "Muhammad Fahri is a Software Engineer & Full-Stack Developer based in Medan, Indonesia with 2+ years of experience building enterprise web and mobile applications.",
       },
-      { property: "og:title", content: "Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      { property: "og:title", content: "Muhammad Fahri - Software Engineer" },
       {
         property: "og:description",
         content:
@@ -30,7 +32,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: "https://muhammadfahri.my.id/foto.jpg" },
       { property: "og:image:secure_url", content: "https://muhammadfahri.my.id/foto.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      { name: "twitter:title", content: "Muhammad Fahri - Software Engineer" },
       {
         name: "twitter:description",
         content:
@@ -48,6 +50,20 @@ const experience = [
 ];
 
 const projects = [
+  {
+    slug: "simpel-dbi",
+    img: simpelDbiImg,
+    title: "SIMPEL DBI",
+    meta: "Immigration Village Reporting System",
+    tag: "Web App",
+  },
+  {
+    slug: "ecoreve",
+    img: ecoreveImg,
+    title: "EcoReve",
+    meta: "Industrial Water Treatment Platform",
+    tag: "Web App",
+  },
   {
     slug: "ipomas",
     img: IPOMASvideo,

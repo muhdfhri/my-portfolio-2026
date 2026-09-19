@@ -85,7 +85,7 @@ export default function Header() {
               Fun Projects
             </Link>
             <a
-              href="https://drive.google.com/drive/folders/1dVPwd4Ts9w1xCCTL0-oa1C3plPcD1BRY?hl=id"
+              href="https://drive.google.com/file/d/1w5LXSKFqvHnXEZ4_i07ZaaejmPPaoqhH/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -224,7 +224,7 @@ export default function Header() {
                 className="w-full flex justify-center"
               >
                 <a
-                  href="https://drive.google.com/drive/folders/1dVPwd4Ts9w1xCCTL0-oa1C3plPcD1BRY?hl=id"
+                  href="https://drive.google.com/file/d/1w5LXSKFqvHnXEZ4_i07ZaaejmPPaoqhH/view?usp=sharing"
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setIsMenuOpen(false)}

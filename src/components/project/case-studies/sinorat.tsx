@@ -20,6 +20,7 @@ export const sinoratData = {
       "Redis Caching",
       "Algorithm Design",
     ],
+    link: "https://lentera-sumut.com/",
   },
   customSections: [
     {

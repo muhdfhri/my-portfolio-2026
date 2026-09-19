@@ -13,6 +13,7 @@ export const niviaData = {
     timeline: "Mar 2026",
     team: ["1 Freelance Developer (me!)"],
     skills: ["Laravel", "React", "Inertia.js", "TypeScript", "MySQL"],
+    link: "https://github.com/muhdfhri/nivia-hotel",
   },
   customSections: [
     {

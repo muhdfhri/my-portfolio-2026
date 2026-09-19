@@ -241,18 +241,57 @@ Impact:
 
 ---
 
+## PROJECT 7: ECOREVE — Industrial Water Treatment & Eco-Chemical Platform
+
+Client: PT Premier Engineering Indonesia
+Timeline: 2026
+Website: https://ecoreve.premier-engineering.co.id/
+
+Problem: Enterprise clients in industrial manufacturing required a centralized digital platform to manage chemical procurement, review technical water treatment specifications, submit industrial inquiries, and manage CMS content.
+
+Solution:
+- Full-Stack Web Platform: Built with Laravel 13, Vue 3, Inertia.js, TypeScript, and Tailwind CSS v4.
+- Industrial Product & Chemical Catalog: Showcases eco-conscious water treatment chemicals, dosing equipment, and custom formulation services with detailed technical data sheets (TDS) and safety data sheets (SDS).
+- Custom Administrative CMS/CRM: Interactive admin dashboard for managing product catalogs, client inquiry tickets, solution case studies, and content updates in real-time.
+- Database & Security Architecture: MySQL relational database with normalized schema, Cloudflare Turnstile anti-bot challenge integration, and session-based authentication.
+
+Tech stack: Laravel 13, Vue 3, Inertia.js, TypeScript, Tailwind CSS v4, MySQL, Cloudflare Turnstile
+
+---
+
+## PROJECT 8: SIMPEL DBI — Immigration Village Reporting System
+
+Client: Kantor Wilayah Direktorat Jenderal Imigrasi Sumatera Utara (North Sumatra Regional Office of Directorate General of Immigration)
+Timeline: Nov 2025 – Feb 2026
+Website: https://simpeldbi.com/portal-dbi
+Scale: Kanwil Sumut + 11 UPT Immigration Offices across North Sumatra
+
+Problem: Manual reporting and lack of real-time geospatial coordination between Village Officials (Perangkat Desa Binaan), Immigration Village Mentors (Petugas PIMPASA), and Regional Executives (Kanwil Sumut) in monitoring immigration activities and incident reports across villages in North Sumatra.
+
+Solution:
+- End-to-End Integrated Platform: Connects 3 stakeholder tiers (Village Officials, PIMPASA Officers, Kanwil Admins) into a unified real-time workflow.
+- Incident Reporting & Pembinaan Management: Village officials submit incident reports and routine coaching activities; PIMPASA officers perform administrative & technical verification; Kanwil administrators gain executive oversight.
+- Leaflet GIS Interactive Map: Interactive geospatial map visualizing immigration village locations, incident density heatmaps, and PIMPASA officer task coverage across North Sumatra.
+- Enterprise Security & Analytics Infrastructure: Integrated with Cloudflare Turnstile for silent spam/bot protection, Google Analytics 4 (GA4) for user interaction telemetry, Cloudflare RUM (Real User Monitoring) for performance monitoring, CDN asset delivery, and HTTP/3 protocol optimization.
+
+Tech stack: Laravel 13, Vue 3, Inertia.js, TypeScript, Tailwind CSS v4, MySQL, Leaflet GIS, Cloudflare Turnstile, Cloudflare RUM, GA4
+
+---
+
 ## CAREER TIMELINE (SUMMARY)
 
 - Feb 2024 – Jan 2025: MSIB Kampus Merdeka at Bakrie Center Foundation x Yayasan Mentari Meraki Asa — digitized TB screening, built GIS risk mapping tool, mentored 20 partner students, earned SDGs Hero Award.
 - 2024–2025: Built Gobakkara (freelance) & Nivia Hotel website (freelance)
 - 2025–2026: Built SPMT (enterprise) & AMANG (Kanwil Imigrasi Sumut)
+- Nov 2025 – Feb 2026: Built SIMPEL DBI for Kanwil Imigrasi Sumut (11 UPT Immigration Offices across North Sumatra)
 - Nov 2025 – May 2026: IT Development at Kanwil Imigrasi Sumut — SINORAT v2.0.0 + AMANG rollout
+- 2026: Built EcoReve platform for PT Premier Engineering Indonesia
 - May – Aug 2026: Software Engineer at PT Premier Engineering Indonesia — IPOMAS SCADA & Mobile Mewah (currently ongoing)
 `;
 
 export const SUGGESTED_PROMPTS = [
   "Who is Fahri, his background & core technical stack?",
+  "Tell me about SIMPEL DBI & EcoReve projects built by Fahri!",
   "How did IPOMAS reduce mill downtime across 4 Mewah Group mills?",
   "How did SINORAT scale from one office to 11 government work units?",
-  "What are the technical solutions behind Gobakkara, Nivia Hotel & SPMT?",
 ];

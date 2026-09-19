@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { ArrowUpRight, X, Maximize2 } from "lucide-react";
 import CursorFollow from "@/components/ui/cursor-follow";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -10,6 +11,8 @@ import { niviaData } from "@/components/project/case-studies/nivia";
 import { sinoratData } from "@/components/project/case-studies/sinorat";
 import { amangData } from "@/components/project/case-studies/amang";
 import { gobakkaraData } from "@/components/project/case-studies/gobakkara";
+import { ecoreveData } from "@/components/project/case-studies/ecoreve";
+import { simpelDbiData } from "@/components/project/case-studies/simpel-dbi";
 import { defaultStudies } from "@/components/project/case-studies/default-studies";
 
 export const Route = createFileRoute("/work/$slug")({
@@ -19,7 +22,7 @@ export const Route = createFileRoute("/work/$slug")({
     const project = projectMap[slug];
     const title = project?.title || params.slug.toUpperCase();
     const desc = project?.kicker || `A case study of ${title} by Muhammad Fahri, Software Engineer & Full-Stack Developer.`;
-    const fullTitle = `${title.toUpperCase()} | Muhammad Fahri | Software Engineer | Full-Stack Developer`;
+    const fullTitle = `${project?.title || title} - Muhammad Fahri`;
     return {
       meta: [
         { title: fullTitle },
@@ -52,6 +55,8 @@ export interface ProjectMetadata {
   timeline?: string;
   team?: string | string[];
   skills?: string | string[];
+  link?: string;
+  linkLabel?: string;
 }
 
 interface ProjectData {
@@ -64,6 +69,9 @@ interface ProjectData {
 
 const projectMap: Record<string, ProjectData> = {
   ...defaultStudies,
+  simpeldbi: simpelDbiData,
+  "simpel-dbi": simpelDbiData,
+  ecoreve: ecoreveData,
   ipomas: ipomasData,
   spmt: spmtData,
   nivia: niviaData,
@@ -165,6 +173,32 @@ function WorkDetail() {
   const p = projectMap[normalizedSlug] || Object.values(projectMap)[0];
   const activeSections = p.customSections || defaultSections;
 
+  const [activeImage, setActiveImage] = useState<{ src: string; alt?: string } | null>(null);
+
+  useEffect(() => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && target.tagName === "IMG" && !target.classList.contains("no-lightbox")) {
+        const img = target as HTMLImageElement;
+        if (img.src) {
+          setActiveImage({ src: img.src, alt: img.alt || "" });
+        }
+      }
+    };
+    document.addEventListener("click", handleGlobalClick);
+    return () => document.removeEventListener("click", handleGlobalClick);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveImage(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <CursorFollow>
@@ -180,7 +214,7 @@ function WorkDetail() {
             </Link>
           </div>
 
-        <div className="col-span-1 md:col-span-8 lg:col-span-9 max-w-[65ch]">
+        <div className="col-span-1 md:col-span-8 lg:col-span-9 max-w-[65ch] [&_img]:cursor-zoom-in [&_img]:transition-transform [&_img:hover]:scale-[1.01]">
 
           {/* Title block */}
           <div className="font-mono-label text-muted-foreground mb-6">
@@ -206,9 +240,9 @@ function WorkDetail() {
             )}
           </div>
 
-          {/* Metadata Section (ROLE, TIMELINE, TEAM, SKILLS) */}
+          {/* Metadata Section (ROLE, TIMELINE, TEAM, SKILLS, LINK) */}
           {p.metadata && (
-            <div className="mt-12 pt-8 border-t border-border/60 grid grid-cols-2 md:grid-cols-4 gap-6 font-sans">
+            <div className="mt-12 pt-8 border-t border-border/60 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 font-sans">
               {p.metadata.role && (
                 <div>
                   <h4 className="font-mono-label text-muted-foreground text-xs uppercase tracking-wider mb-2">ROLE</h4>
@@ -247,6 +281,22 @@ function WorkDetail() {
                   ) : (
                     <p className="text-foreground text-sm leading-relaxed">{p.metadata.skills}</p>
                   )}
+                </div>
+              )}
+              {p.metadata.link && (
+                <div>
+                  <h4 className="font-mono-label text-muted-foreground text-xs uppercase tracking-wider mb-2">LINK</h4>
+                  <a
+                    href={p.metadata.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group text-foreground text-sm leading-relaxed inline-flex items-center gap-1 transition-colors hover:text-muted-foreground"
+                  >
+                    <span className="group-hover:underline underline-offset-4 font-normal">
+                      {p.metadata.linkLabel || (p.metadata.link.includes("github.com") ? "View Repository" : "Visit Website")}
+                    </span>
+                    <ArrowUpRight className="w-4 h-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
                 </div>
               )}
             </div>
@@ -389,6 +439,41 @@ function WorkDetail() {
           </div>
         </div>
       </div>
+      {/* Lightbox Modal */}
+      {activeImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md transition-all duration-300 animate-in fade-in"
+          onClick={() => setActiveImage(null)}
+        >
+          <button
+            type="button"
+            className="absolute top-6 right-6 z-10 text-white/70 hover:text-white bg-black/50 hover:bg-black/80 rounded-full p-2.5 transition-colors cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveImage(null);
+            }}
+            aria-label="Close image preview"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <div
+            className="relative max-w-[95vw] max-h-[90vh] overflow-hidden rounded-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={activeImage.src}
+              alt={activeImage.alt || "Fullscreen view"}
+              className="w-full h-full max-h-[90vh] object-contain rounded-xl shadow-2xl"
+            />
+            {activeImage.alt && (
+              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-center font-mono-label text-xs text-white/90">
+                {activeImage.alt}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       <Footer />
     </CursorFollow>
   </div>

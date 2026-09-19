@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import CursorFollow from "@/components/ui/cursor-follow";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -65,19 +66,20 @@ import {
   Award,
   BookOpen,
   Trophy,
+  X,
 } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   component: About,
   head: () => ({
     meta: [
-      { title: "About | Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      { title: "About - Muhammad Fahri" },
       {
         name: "description",
         content:
           "Muhammad Fahri | Software Engineer with 2+ years of experience developing web and mobile applications using Laravel, React, Vue, Inertia, and Flutter.",
       },
-      { property: "og:title", content: "About | Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      { property: "og:title", content: "About - Muhammad Fahri" },
       {
         property: "og:description",
         content:
@@ -88,7 +90,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:image", content: "https://muhammadfahri.my.id/foto.jpg" },
       { property: "og:image:secure_url", content: "https://muhammadfahri.my.id/foto.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "About | Muhammad Fahri | Software Engineer | Full-Stack Developer" },
+      { name: "twitter:title", content: "About - Muhammad Fahri" },
       {
         name: "twitter:description",
         content:
@@ -219,15 +221,16 @@ const CERTIFICATIONS = [
   },
 ];
 
-function Hero() {
+function Hero({ onOpenLightbox }: { onOpenLightbox: (src: string, alt: string) => void }) {
   return (
     <section className="mx-auto max-w-[1400px] px-4 xs:px-6 sm:px-8 md:px-10 pt-10 xs:pt-12 sm:pt-16 md:pt-24 pb-8 sm:pb-12">
       {/* Top Photo Asset & Header */}
       <div className="flex items-center gap-4 xs:gap-5 sm:gap-6 md:gap-7 mb-8 sm:mb-10">
         <img
           src={fotoImg}
-          alt="Muhammad Fahri"
-          className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl sm:rounded-3xl object-cover border border-border/80 shadow-md shrink-0"
+          alt="Muhammad Fahri - Software Engineer"
+          onClick={() => onOpenLightbox(fotoImg, "Muhammad Fahri - Software Engineer")}
+          className="w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl sm:rounded-3xl object-cover border border-border/80 shadow-md shrink-0 cursor-zoom-in transition-transform hover:scale-105"
         />
         <div className="space-y-0.5 sm:space-y-1">
           <span className="font-mono-label text-xs xs:text-sm sm:text-base uppercase tracking-wider text-accent font-semibold block">
@@ -417,14 +420,62 @@ function Content() {
 }
 
 function About() {
+  const [activeImage, setActiveImage] = useState<{ src: string; alt?: string } | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveImage(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <CursorFollow>
         <Header />
         <main>
-          <Hero />
+          <Hero onOpenLightbox={(src, alt) => setActiveImage({ src, alt })} />
           <Content />
         </main>
+
+        {/* Lightbox Modal for Profile Image */}
+        {activeImage && (
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md transition-all duration-300 animate-in fade-in"
+            onClick={() => setActiveImage(null)}
+          >
+            <button
+              type="button"
+              className="absolute top-6 right-6 z-10 text-white/70 hover:text-white bg-black/50 hover:bg-black/80 rounded-full p-2.5 transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.stopPropagation();
+                setActiveImage(null);
+              }}
+              aria-label="Close image preview"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <div
+              className="relative max-w-[95vw] max-h-[90vh] overflow-hidden rounded-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={activeImage.src}
+                alt={activeImage.alt || "Fullscreen view"}
+                className="w-full h-full max-h-[90vh] object-contain rounded-2xl shadow-2xl"
+              />
+              {activeImage.alt && (
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-center font-mono-label text-xs text-white/90">
+                  {activeImage.alt}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         <Footer />
       </CursorFollow>
     </div>

@@ -15,6 +15,7 @@ export const amangData = {
     timeline: "Mar 2026 – May 2026",
     team: ["1 Lead Developer (me!)"],
     skills: ["Laravel / PHP", "Web Development"],
+    link: "https://github.com/muhdfhri/internship-portal",
   },
   customSections: [
     {
